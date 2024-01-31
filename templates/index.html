@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ super() }} - {{ title }}
+{% endblock %}
+{% block content %}
+    <section>
+        <div class="list">
+            <h1>Перечень выполняемых работ</h1>
+<!--            <div class="line"></div>-->
+            <div class="list_works">
+                <div class="list_img">
+                    <img src="{{ url_for('static', filename='images/mg5.png') }}" width="200" height="266" alt="laminate" >
+                    <p>укладка ламината</p>
+                </div>
+                <div class="list_img">
+                    <img src="{{ url_for('static', filename='images/mg2.png') }}" width="200" height="266" alt="wallpaper" >
+                    <p>обойные</p>
+                </div>
+                <div class="list_img">
+                    <img src="{{ url_for('static', filename='images/mg1.png') }}" width="200" height="266" alt="drywall" >
+                    <p>гипсокартоные</p>
+                </div>
+                <div class="list_img">
+                    <img src="{{ url_for('static', filename='images/mg4.png') }}" width="200" height="266" alt="tile" >
+                    <p>плиточные</p>
+                </div>
+                <div class="list_img">
+                    <img src="{{ url_for('static', filename='images/electrical.png') }}" width="200" height="266" alt="electrics" >
+                    <p>электромонтажные</p>
+                </div>
+                <div class="list_img">
+                    <img src="{{ url_for('static', filename='images/welding.png') }}" width="200" height="266" alt="welding" >
+                    <p>сварочные</p>
+                </div>
+                <div class="list_img">
+                    <img src="{{ url_for('static', filename='images/mg7.png') }}" width="200" height="266" alt="stretch_ceilings" >
+                    <p>натяжные потолки</p>
+                </div>
+                <div class="list_img">
+                    <img src="{{ url_for('static', filename='images/mg3.png') }}" width="200" height="266" alt="plaster" >
+                    <p>штукатурные</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="types_of_repairs">
+            <h2 class="types_of_repairs_title">Виды ремонта</h2>
+<!--            <div id="line1"></div>-->
+            <div class="wrapper_repair">
+                <div class="repair">
+                    <img class="repair_img" src="{{ url_for('static', filename='images/mg10.png') }}" width="370" height="287" alt="cosmetic_repairs" >
+                    <h3 class="repair_title">Косметический ремонт</h3>
+                    <ul class="repair_list">
+                        <li>Зачистка потолка,стен</li>
+                        <li>Шпаклевка потолка,стен</li>
+                        <li>Покраска потолка</li>
+                        <li>Натяжные потолки</li>
+                        <li>Наклеивание обоев</li>
+                        <li>Настил ламината,ковролина,<br/>линолеума(без выравнивания)</li>
+                        <li>Замена розеток,выключателей</li>
+                    </ul>
+                    <p class="price">Стоимость косметического ремонта<br/> квартиры составляет от 2500 р/м2 </p>
+                </div>
+                <div class="repair">
+                    <img class="repair_img" src="{{ url_for('static', filename='images/mg8.png') }}" width="409" height="287" alt="major_repairs" >
+                    <h3 class="repair_title">Капитальный ремонт</h3>
+                    <ul class="repair_list">
+                        <li>Демонтажные работы</li>
+                        <li>Штукатурные работы</li>
+                        <li>Строительные работы (возведение стен,<br/>перегородок)</li>
+                        <li>Шпатлевка стен,потолков,откосов</li>
+                        <li>Покраска потолков,стен</li>
+                        <li>Укладка линолеума,ламината,ковролина</li>
+                        <li>Поклейка обоев</li>
+                        <li>Натяжные потолки</li>
+                        <li>Полы с подогревом</li>
+                        <li>Замена труб канализации,водоснабжения</li>
+                        <li>Замена батарей</li>
+                        <li>Стяжка</li>
+                        <li>Электрика с переносом</li>
+                        <li>Укладка плитки</li>
+                        <li>Замена сантехники</li>
+                    </ul>
+                    <p class="price">Стоимость капитального ремонта<br/> квартиры от 4000 р/м2</p>
+                </div>
+            </div>
+            <p class="counts">Более точную смету Вам рассчитает замерщик</p>
+        </div>
+    </section>
+    <section>
+        <div class="procedure">
+            <h2 class="procedure_title">Порядок нашей работы</h2>
+            <div class="procedure_wrapper">
+                <div class="telephone">
+                    <img class="procedure_img" src="{{ url_for('static', filename='images/phone.png') }}" width="95" height="90" alt="phone" >
+                    <p>Звонок или почта</p>
+                </div>
+                <div class="roulette">
+                    <img class="procedure_img" src="{{ url_for('static', filename='images/roulette.png') }}" width="100" height="90" alt="roulette" >
+                    <p>Бесплатный замер и составление сметы</p>
+                </div>
+                <div class="delivery">
+                    <img class="procedure_img" src="{{ url_for('static', filename='images/delivery.png') }}" width="100" height="105" alt="delivery" >
+                    <p>Доставка материала и выполнение работы</p>
+                </div>
+                <div class="payment">
+                    <img class="procedure_img" src="{{ url_for('static', filename='images/payment.png') }}" width="100" height="101" alt="payment" >
+                    <p>Оплата</p>
+                </div>
+<!--                <div style="clear:both;"></div>-->
+            </div>
+        </div>
+    </section>
+{% endblock %}

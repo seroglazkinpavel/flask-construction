@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ super() }} - {{ title }}
+{% endblock %}
+{% block content %}
+<div class="reviews">
+    <h1>Редактирование, удаление,отзывов</h1>
+    <div class="comments">
+        <ul class="comments_list">
+            {% for comment in comments %}
+                <li class="comments_list_li">
+                    <div class="comments_list_div">
+                        <p><img src="{{ url_for('static', filename='images/entrance.png') }}"> <span class="author_span">{{ comment.author }}</span></p>
+                        <p>{{ comment.created_at }}:</p>
+                    </div>
+                    <p class="comments_list_p">{{ comment.text }}</p>
+                    <a class="edit_delete" href="{{url_for('edit_comment', comment_id = comment.id )}}">Изменить</a>
+                    <a class="edit_delete" href="{{url_for('delete_comment', comment_id = comment.id )}}">
+                        Удалить
+                    </a>
+                </li>
+            <hr style="margin: 7px 0;">
+            {% endfor %}
+        </ul>
+
+        <h2 class="comment_title">Добавление комментария</h2>
+        <form method="POST" action="{{ url_for('reviews') }}" class="form_login" autocomplete="off">
+            {{ form.csrf_token }}
+            <p>
+                {{ form.text.label(class="form-control-label") }}
+            </p>
+            <p>
+                {{ form.text(class="form-control") }}
+            </p>
+            <p>
+                {{ form.submit(class="btn btn-primary") }}
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock %}

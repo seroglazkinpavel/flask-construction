@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ super() }} - {{ title }}
+{% endblock %}
+{% block content %}
+<div class="reviews">
+    <h1>Отзывы</h1>
+    <div class="comments">
+        <ul class="comments_list">
+            {% for comment in comments %}
+                <li class="comments_list_li">
+                    <div class="comments_list_div">
+                        <p><img src="{{ url_for('static', filename='images/entrance.png') }}"> <span class="author_span">{{ comment.author }}</span></p>
+                        <p>{{ comment.created_at }}:</p>
+                    </div>
+                    <p class="comments_list_p">{{ comment.text }}</p>
+                </li>
+            <hr style="margin: 7px 0;">
+            {% endfor %}
+        </ul>
+        {% if current_user.is_authenticated %}
+        <h2 class="comment_title">Добавление комментария</h2>
+        <form method="POST" action="{{ url_for('reviews') }}" class="form_login">
+            {{ form.csrf_token }}
+            <p>
+                {{ form.text.label(class="form-control-label") }}
+            </p>
+            <p>
+                {{ form.text(class="form-control") }}
+            </p>
+            <p>
+                {{ form.submit(class="btn btn-primary") }}
+            </p>
+        </form>
+
+        {% else %}
+        <a class="reviews_link" href="{{ url_for('login') }}">Войдите</a> или <a class="reviews_link" href="{{ url_for('register') }}">зарегистрируйтесь</a>, чтобы оставить свой отзыв.
+        {% endif %}
+    </div>
+    <nav class="page_navigation">
+    <ul class="list_pagination">
+    <!-- previous page -->
+    {% if comments.has_prev %}
+    <li class="page-item">
+        <a class="page-link" href="{{ url_for('reviews', page=comments.prev_num) }}">Назад</a>
+    </li>
+              {% else %}
+            <li class="page-item">
+                <span class="page-link">Назад</span>
+            </li>
+    {% endif %}
+
+    <!-- all page numbers -->
+    {% for page_num in comments.iter_pages() %}
+        {% if page_num %}
+            {% if page_num != comments.page %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('reviews', page=page_num) }}">{{ page_num }}</a>
+                </li>
+            {% else %}
+                <li class="page-item active">
+                    <a class="page-link active" href="#">{{ page_num }}</a>
+                </li>
+            {% endif %}
+       {% else %}
+           <li class="page-item">
+               <span class="ellipsis" style="white-space; nowrap; overflow: hidden; text-overflow: ellipsis">…</span>
+           </li>
+       {% endif %}
+    {% endfor %}
+
+    <!-- next page -->
+    {% if comments.has_next %}
+    <li class="page-item">
+        <a class="page-link" href="{{ url_for('reviews', page=comments.next_num) }}">Вперед</a></li>
+                {% else %}
+            <li class="page-item">
+                <span class="page-link">Вперед</span>
+            </li>
+    {% endif %}
+      </ul>
+</nav>
+</div>
+{% endblock %}

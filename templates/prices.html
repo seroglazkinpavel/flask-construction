@@ -1,0 +1,432 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ super() }} - {{ title }}
+{% endblock %}
+{% block content %}
+<section>
+  <div class="list">
+    <h1>Цены на отделочные работы</h1>
+<!--    <div id="line"></div>-->
+    <div class="list_table">
+    <table>
+      <tr>
+        <th>Наименование работ</th>
+        <th>Ед. изм.</th>
+        <th>Стоимость</th>
+      </tr>
+      {% for work in works %}
+        <tr>
+          <td><span style="padding-left : 5px;">{{ work.title }}</span></td>
+          <td style="text-align: center;">{{ work.unit_dimensions }}</td>
+          <td style="text-align: center;">{{ work.price }}</td>
+        </tr>
+      {% endfor %}
+
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Демонтаж стен из ГКЛ,пластика, МДФ</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">100</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Демонтаж потолка из ГКЛ, пластика, МДФ</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">100</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Демонтаж бетонных перегородок</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">200</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Демонтаж болконных проемов</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">2000</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Демонтаж кабины сан. Узла</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">10000</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Демонтаж межкомнатных дверей</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">100</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Демонтаж окон</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">200</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Демонтаж кафельной плитки</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">160</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Демонтаж стяжки</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">200</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Демонтаж деревянных полов</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">200</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Снятие обоев</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">60</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Снятие краски</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">150</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Выравнивание стен по маякам</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">300</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Шпатлевка стен под обои</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">200</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Шпатлевка стен под окраску</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">300</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Шпатлевка полукруглых стен</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">350</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж откосов из пластиковых панелей</span></td>-->
+<!--        <td style="text-align: center;">п/м</td>-->
+<!--        <td style="text-align: center;">250</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж откосов из ГКЛ</span></td>-->
+<!--        <td style="text-align: center;">п/м</td>-->
+<!--        <td style="text-align: center;">200</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Замена подоконника</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">300</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж стен из ГКЛ</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">300</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж стен из МДФ</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">300</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж перегородки из гкл</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">400</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж стен из пластиковых панелей</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">250</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Укладка тепло-шумо изоляции</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">80</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж арки, полуарки</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">2500</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж декор стенки</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">1000</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж короба под батарею отопления</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">400</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Покраска стен</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">130</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Покраска полукруглых стен</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">200</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Оклеивание стен обоями в1 уровень</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">130</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Оклеивание стен обоями в2 уровеня</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">180</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Укладка кафеля</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">550</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Сборка и установка межкомнатных дверей</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">2000</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Сборка и установка 2-х межкомнатных дверей</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">2500</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Установка металических дверей</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">2000</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Увеличение проема под мет. Дверь</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">1500</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж натяжного потолка</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">350</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж потолков из ГКЛ</span></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">1 уровень</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">300</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж потолков из ГКЛ 2 уровня</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">400</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">3 уровня</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">500</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж потолков из ГКЛ 2 уровня с внутренней подсветкой</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">500</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж потолка из пластиковых панелей</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">300</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж потолка типа Армстронг</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">250</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Шпатлевка потолка из ГКЛ</span></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">1 уровень</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">300</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">2 уровня</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">350</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">3 уровня</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">400</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">2 уровня с внутренней подсветкой</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">400</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Шпатлевка бетонного потолка</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">450</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Покраска потолка</span></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">1 цвет</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">130</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">2 цвета</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">200</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">3 цвета</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">300</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Наклейка галтель шириной до 5 см.</span></td>-->
+<!--        <td style="text-align: center;">п/м</td>-->
+<!--        <td style="text-align: center;">50</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Наклейка галтель шириной более 5 см.</span></td>-->
+<!--        <td style="text-align: center;">п/м</td>-->
+<!--        <td style="text-align: center;">80</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Наклейка галтель к натяжному потолку</span></td>-->
+<!--        <td style="text-align: center;">п/м</td>-->
+<!--        <td style="text-align: center;">100</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Стяжка полов толщиной до 5 см</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">350</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Стяжка полов толщиной до 10 см</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">450</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Выравнивание полов по плоскости</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">200</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Укладка линолиума</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">150</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Укладка ламината</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">250</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Укладка ковралина</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">200</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж плинтусов</span></td>-->
+<!--        <td style="text-align: center;">кв.м</td>-->
+<!--        <td style="text-align: center;">60</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Установка порожка</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">100</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Установка гибкого порожка</span></td>-->
+<!--        <td style="text-align: center;">п/м</td>-->
+<!--        <td style="text-align: center;">50</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Троссировка провода</span></td>-->
+<!--        <td style="text-align: center;">п/м</td>-->
+<!--        <td style="text-align: center;">20</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Установка розеток и выключателей</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">350</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Установка точечных светильников</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">350</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Установка бра и люстр</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">500</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж наружнего эл.щита до 10 автоматов</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">1000</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж внутреннего эл.щита до 10 автоматов</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">1500</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж наружнего эл.щита до 20 автоматов</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">1300</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Монтаж внутреннего эл.щита до20 автоматов</span></td>-->
+<!--        <td style="text-align: center;">шт</td>-->
+<!--        <td style="text-align: center;">1800</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;">Вынос мусора</span></td>-->
+<!--        <td style="text-align: center;">Газель</td>-->
+<!--        <td style="text-align: center;">2000</td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;"></span></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;"></span></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;"></span></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;"></span></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td><span style="padding-left : 5px;"></span></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--        <td style="text-align: center;"></td>-->
+<!--      </tr>-->
+
+    </table>
+         <p class="list_table_paragraph">Все цены указаны в рублях.</p>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

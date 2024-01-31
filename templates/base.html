@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" sizes="16x16">
+    <title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.bxslider').bxSlider({
+			pager: false,
+			auto: true,
+			autoHover: true,
+			mode: 'fade',
+			speed: 2000
+		});
+	});
+	</script>
+</head>
+<body>
+		<div class="wrapper">
+			<div class="container">
+			<header>
+				<ul class="none_nav">
+            	    <li class="header_item headerButton">
+						<nav class="drop_down_menu">
+        					<label class="menu-btn" for="menu-switch">
+        					    <span></span>
+        					</label>
+        					<input id="menu-switch" type="checkbox">
+        					<ul class='menu-list'>
+        					    <li class="menu-list-item">
+        					        <span class="menu-list-title">menu</span>
+        					    </li>
+        					    <li class="menu-list-item"><a href="/">Главная</a></li>
+        					    <li class="menu-list-item"><a href="/prices">Цены</a></li>
+								<li class="menu-list-item"><a href="/photos_of_our_works">Фото наших работ</a></li>
+        					    <li class="menu-list-item"><a href="/contacts">Контакты</a></li>
+								<li class="menu-list-item"><a href="/reviews">Отзывы</a></li>
+        					</ul>
+    					</nav>
+            	    </li>
+            	</ul>
+				<div class="mg">
+					<div class="header container">
+						<div class="header_left">
+							<figure>
+								<div class="logotip">
+									<a><img src="{{ url_for('static', filename='images/logo2.png') }}" width="107" height="76" alt="logotip"></a>
+								</div>
+							</figure>
+						</div>
+						<div class="header_right">
+							<img class="user_img" src="{{ url_for('static', filename='images/entrance.png') }}">
+							{% if current_user.is_authenticated %}
+                	    	    <span class="login_user">Добро пожаловать,<br> {{ current_user.username }} | </span><a class="register"  href="{{ url_for('logout') }}" class="exit">Выход</a>
+                	    	{% else %}
+                	    	    <a class="register" href="{{ url_for('login') }}">Вход\</a><a class="register" href="{{ url_for('register') }}">регистрация</a>
+                	    	{% endif %}
+
+							<p class="phone">Нужен ремонт? Звоните.</p>
+							<p class="room"><strong>8 927 780 39 17</strong></p>
+							<p class="room1"><strong>8 909 775 80 53</strong></p>
+							<p class="room3"><strong>г.Астрахань</strong></p>
+						</div>
+					</div>
+				</div>
+				<nav>
+					<ul class="main container">
+						<li><a href="/">Главная</a></li>
+						<li><a href="/prices">Цены</a></li>
+						<li><a href="/photos_of_our_works">Фото наших работ</a></li>
+						<li><a href="/contacts">Контакты</a></li>
+						<li><a href="/reviews">Отзывы</a></li>
+					</ul>
+				</nav>
+
+			</header>
+			{% block content %}{% endblock %}
+			<footer>
+				<div class="footer">
+					<ul class="footer_list">
+						<li><a href="/">Главная</a></li>
+						<li><a href="/prices">Цены</a></li>
+						<li><a href="/photos_of_our_works">Фото Наших работ</a></li>
+						<li><a href="/contacts">Контакты</a></li>
+						<li><a href="/reviews">Отзывы</a></li>
+					</ul>
+
+					<p class="room2"><span class="phone1">Нужен ремонт? Звоните.</span></p>
+					<p class="room4"><strong>8 909 375 80 93 или 8 929 740 49 47</strong></p>
+					<p class="room4"><strong>г.Астрахань</strong></p>
+				</div>
+			</footer>
+			</div>
+		</div>
+</body>
+</html>

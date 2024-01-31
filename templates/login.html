@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ super() }} - {{ title }}
+{% endblock %}
+{% block content %}
+    <section>
+        <div class="list">
+            <div class="auth_block">
+                <h1>Авторизация</h1>
+                <form method="POST" action="{{ url_for('login') }}" class="form_login">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    {{ form.csrf_token }}
+                    <p>
+                        {{ form.username.label }}
+                        {{ form.username(size=32) }}
+                    </p>
+                    <p>
+                        {{ form.email.label }}
+                        {{ form.email(size=32) }}
+                    </p>
+                    <p>
+                        {{ form.password.label }}
+                        {{ form.password(size=32) }}
+                    </p>
+                    <p>
+                        <input type="submit" value="Login" class="btn">
+                    </p>
+                </form>
+                <p>У вас нет учетной записи??</p>
+                <a class="register_user" href="{{ url_for('register') }}">Зарегистрируйтесь здесь</a>
+           </div>
+        </div>
+    </section>
+{% endblock %}

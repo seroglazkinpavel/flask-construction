@@ -1,0 +1,11 @@
+Прописан файл index.wsgi для хостинга timeweb
+
+https://timeweb.com/ru/community/questions/deploy-na-shared-hosting-kak-razvernut-gotovyy-proekt-na-flask-bottle-v-taymvebe-1
+
+activate_this = '/home/c/co23154/flask-construction/public_html/venv/bin/activate_this.py'
+#execfile(activate_this, dict(__file__=activate_this))
+exec(open(activate_this).read())
+import sys
+sys.path.insert(0, '/home/c/co23154/flask-construction/public_html/')
+sys.path.insert(1, '/home/c/co23154/flask-construction/public_html/venv/lib/python3.10/site-packages/')
+from app import app as application

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ super() }} - {{ title }}
+{% endblock %}
+{% block content %}
+<div class="delete">
+  <h2 class="work1">Вы уверены, что хотите удалить комментарий автора {{ comment.author }}?</h2>
+  <div class="delete_cancel">
+      <form action="{{url_for('delete_comment', comment_id = comment.id )}}" method='post'>
+        {{ form.csrf_token }}
+        <input type="submit" value="Удалить" class="btm_delete btm_submit">
+      </form>
+
+      <a href="{{ url_for('panel') }}"><button class="btm_delete btm_submit">Отменить</button></a>
+  </div>
+
+</div>
+{% endblock %}

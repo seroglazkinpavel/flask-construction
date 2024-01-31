@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="list">
+            <h1 class="mistake_title">Ошибка 404</h1>
+            <p class="mistake_str">Мы не нашли страницу: &laquo;{{ url }}&raquo;.<br>
+                <a href="{{ url_for('index') }}">Попробуйте вернуться на главную</a>
+            </p>
+        </div>
+    </section>
+{% endblock %}
